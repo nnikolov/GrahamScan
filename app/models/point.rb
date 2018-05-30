@@ -2,6 +2,7 @@ class Point
   include ActiveModel::Model
   attr_accessor :x, :y
 
+  # Calculate the angle this point and the lowest_yx_coordinate point make with the x-axis
   def angle(lowest_yx_coordinate)
     dy = y - lowest_yx_coordinate.y
     dx = x - lowest_yx_coordinate.x
