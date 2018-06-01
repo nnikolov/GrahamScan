@@ -63,7 +63,7 @@ class Shape
       @hull_points.delete_at(-2)
 
       # Recursivly check the last three points in @hull_points to see if they still make a left turn
-      check_point()
+      check_point() if @hull_points.count > 2
     end
   end
 
