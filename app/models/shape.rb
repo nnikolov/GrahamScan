@@ -3,10 +3,10 @@
 class Shape
   include ActiveModel::Model
 
-  # An array of points containing all given points
+  # An array containing all given points
   attr_accessor :points
 
-  # An array of points containing the points being scanned
+  # An array containing the points being scanned
   # At the end of execution, it holds the final result
   attr_accessor :hull_points
 
@@ -28,7 +28,7 @@ class Shape
     @hull_points[0..-2]
   end
 
-  # The algorithm starts scanning with the point with the lowest y-coordinate
+  # The algorithm starts scanning from the point with the lowest y-coordinate
   # If more than one point has the lowest y-coordinate, the one with the lowest x-coordinate is selected 
   def lowest_yx_coordinate
     calc_lowest_yx_coordinate if @lowest_yx_coordinate.nil?
@@ -70,7 +70,7 @@ class Shape
   # When called, starts the loop to check each point
   def convex_hull
 
-    # Take the furst two point from the sorted array and add them to @hull_points
+    # Take the first two points from the sorted array and add them to @hull_points
     # They will be used in the first scan
     @hull_points = @points[0..1]
 
