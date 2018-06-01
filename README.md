@@ -18,6 +18,3 @@ s = Shape.create [[6,1], [5,2], [4,3], [3,3], [2,2], [1,1], [6,2], [6,3], [1,2],
 
 s.hull_points.join(', ')
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
