@@ -1,3 +1,5 @@
+# Find 2D convex hull using Graham scan.
+# nrnickolov@yahoo.com
 # https://en.wikipedia.org/wiki/Graham_scan
 
 class Shape
