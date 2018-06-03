@@ -113,5 +113,24 @@ class ShapeTest < ActiveSupport::TestCase
      assert_equal '[-2, -2]', s.lowest_yx_coordinate.to_s
      assert_equal "[-2, -2], [-1, -2], [0, -2], [1, -2], [2, -2], [2, -1], [2, 0], [2, 1], [2, 2], [1, 2], [0, 2], [-1, 2], [-2, 2], [-2, 1], [-2, 0], [-2, -1]", s.points.join(", ")
      assert_equal "[-2, -2], [2, -2], [2, 2], [-2, 2]", s.hull_points.join(", ")
+
+     s = Shape.create [[2,2], [2,-2], [-2,-2], [-2,2]]
+     assert_equal '[-2, -2]', s.lowest_yx_coordinate.to_s
+     assert_equal '[-2, -2], [2, -2], [2, 2], [-2, 2]', s.points.join(", ")
+     assert_equal '[-2, -2], [2, -2], [2, 2], [-2, 2]', s.hull_points.join(", ")
+     assert_equal '[-2, -2], [2, -2], [2, 2], [-2, 2]', s.points.join(", ")
+
+     s = Shape.create [[2,-2], [-2,-2], [-2,2]]
+     assert_equal '[-2, -2]', s.lowest_yx_coordinate.to_s
+     assert_equal '[-2, -2], [2, -2], [-2, 2]', s.points.join(", ")
+     assert_equal '[-2, -2], [2, -2], [-2, 2]', s.hull_points.join(", ")
+     assert_equal '[-2, -2], [2, -2], [-2, 2]', s.points.join(", ")
+
+     s = Shape.create [[1,1], [2,1], [3,1]]
+     assert_equal '[1, 1]', s.lowest_yx_coordinate.to_s
+     assert_equal '[1, 1], [2, 1], [3, 1]', s.points.join(", ")
+     assert_equal '[1, 1]', s.hull_points.join(", ")
+     assert_equal '[1, 1], [2, 1], [3, 1]', s.points.join(", ")
+
    end
 end
